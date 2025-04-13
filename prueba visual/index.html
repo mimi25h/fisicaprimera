@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Multifuncional</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Calculadora Multifuncional</h1>
+    </header>
+    <main>
+        <div class="contenedor-secciones">
+        <section id="conversiones">
+            <h2>Conversor de Unidades</h2>
+            
+            <div class="linea">
+                <label for="velocidadInput">Velocidad:</label>
+                <input type="number" id="velocidadInput" placeholder="Valor">
+                <select id="tipoVelocidad">
+                    <option value="ms-kmh">m/s a km/h</option>
+                    <option value="kmh-ms">km/h a m/s</option>
+                </select>
+                <span id="resultadoVelocidad"></span>
+            </div>
+            <div class="boton-linea">
+                <div class="boton-col">
+                  <button onclick="convertirVelocidad()">Convertir</button>
+                </div>
+                <div class="boton-col">
+                  <button class="reset" onclick="resetearVelocidad()">&#x21bb;</button>
+                </div>
+              </div>
+              
+            
+            <div class="linea">
+                <label for="tiempoInput">Tiempo:</label>
+                <input type="number" id="tiempoInput" placeholder="Valor">
+                <select id="tipoTiempo">
+                    <option value="horas-segundos">Horas a Segundos</option>
+                    <option value="segundos-horas">Segundos a Horas</option>
+                </select>
+                <span id="resultadoTiempo"></span>
+            </div>
+            <div class="boton-linea">
+                <div class="boton-col">
+                  <button onclick="convertirTiempo()">Convertir</button>
+                </div>
+                <div class="boton-col">
+                  <button class="reset" onclick="resetearTiempo()">&#x21bb;</button>
+                </div>
+              </div>
+              
+            
+            <div class="linea">
+                <label for="distanciaInput">Distancia:</label>
+                <input type="number" id="distanciaInput" placeholder="Valor">
+                <select id="tipoDistancia">
+                    <option value="km-m">Kilómetros a Metros</option>
+                    <option value="m-km">Metros a Kilómetros</option>
+                </select>
+                <span id="resultadoDistancia"></span>
+            </div>
+            <div class="boton-linea">
+                <div class="boton-col">
+                  <button onclick="convertirDistancia()">Convertir</button>
+                </div>
+                <div class="boton-col">
+                  <button class="reset" onclick="resetearDistancia()">&#x21bb;</button>
+                </div>
+              </div>
+              
+        </section>
+        
+      
+        
+        
+        <section id="calculadora">
+            <h2>Cálculo de Velocidad, Tiempo y Distancia</h2>
+        
+            <div class="linea">
+                <label for="V">Velocidad:</label>
+                <input type="number" id="V" placeholder="Ingrese la velocidad">
+                <select id="unidadVelocidad">
+                    <option value="kmh">km/h</option>
+                    <option value="ms">m/s</option>
+                </select>
+            </div>
+        
+            <div class="linea">
+                <label for="Dx">Distancia:</label>
+                <input type="number" id="Dx" placeholder="Ingrese la distancia">
+                <select id="unidadDistancia">
+                    <option value="km">Kilómetros</option>
+                    <option value="m">Metros</option>
+                </select>
+            </div>
+        
+            <div class="linea">
+                <label for="Dt">Tiempo:</label>
+                <input type="number" id="Dt" placeholder="Ingrese el tiempo">
+                <select id="unidadTiempo">
+                    <option value="horas">Horas</option>
+                    <option value="segundos">Segundos</option>
+                </select>
+            </div>
+        
+            <select id="tipoCalculo">
+                <option value="velocidad">Calcular Velocidad (V)</option>
+                <option value="tiempo">Calcular Tiempo (Dt)</option>
+                <option value="distancia">Calcular Distancia (Dx)</option>
+            </select>
+            <button onclick="calcular()">Calcular</button>
+            <p id="resultadoCalculo"></p>
+        </section>
+    </div>
+
+    <section id="problemas-encuentro">
+        <h2>Resolver Problemas de Encuentro</h2>
+        
+        <div class="seleccion-problema">
+            <p>Selecciona un problema:</p>
+            <label>
+                <input type="radio" name="problema" value="opcion1" onchange="mostrarProblema()"> 
+                <img src="problema 1.png" alt="Problema 1" class="imagen-seleccion">
+            </label>
+            <label>
+                <input type="radio" name="problema" value="opcion2" onchange="mostrarProblema()"> 
+                <img src="problema 2.png" alt="Problema 2" class="imagen-seleccion">
+            </label>
+        </div>
+        
+        <!-- Opción 1 -->
+        <div id="opcion1" class="problema" style="display: none;">
+            <div>
+                <img src="problema 1.png" alt="Representación de problema de encuentro" class="imagen-problema">
+            </div>
+            <div class="contenedor-datos">
+                <div class="datos" id="velocidad-azul">
+                    <label for="velocidadAzul">Velocidad Esfera Azul:</label>
+                    <div class="input-con-unidades">
+                        <input type="number" id="velocidadAzul" placeholder="Ingrese velocidad">
+                        <select id="unidadVelocidadAzul">
+                            <option value="ms">m/s</option>
+                            <option value="kmh">km/h</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="datos" id="velocidad-roja">
+                    <label for="velocidadRoja">Velocidad Esfera Roja:</label>
+                    <div class="input-con-unidades">
+                        <input type="number" id="velocidadRoja" placeholder="Ingrese velocidad">
+                        <select id="unidadVelocidadRoja">
+                            <option value="ms">m/s</option>
+                            <option value="kmh">km/h</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="datos" id="distancia-datos">
+                    <label for="distancia">Separación:</label>
+                    <div class="input-con-unidades">
+                        <input type="number" id="distancia" placeholder="Ingrese distancia">
+                        <select id="unidadDistancia">
+                            <option value="m">Metros</option>
+                            <option value="km">Kilómetros</option>
+                        </select>
+                    </div>
+                </div>
+                </div>
+                <div id="resultadoCalculo"></div>
+                <button onclick="calcularOpcion1()">Calcular</button>
+
+        </div>
+        
+        <!-- Opción 2 -->
+        <div id="opcion2" class="problema" style="display: none;">
+            <div>
+                <img src="problema 2.png" alt="Representación de problema de encuentro" class="imagen-problema">
+            </div>
+            <div class="contenedor-datos">
+                <div class="datos" id="velocidad-azul">
+                    <label for="velocidadAzul">Velocidad Esfera Azul:</label>
+                    <div class="input-con-unidades">
+                        <input type="number" id="velocidadAzul" placeholder="Ingrese velocidad">
+                        <select id="unidadVelocidadAzul">
+                            <option value="ms">m/s</option>
+                            <option value="kmh">km/h</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="datos" id="velocidad-roja">
+                    <label for="velocidadRoja">Velocidad Esfera Roja:</label>
+                    <div class="input-con-unidades">
+                        <input type="number" id="velocidadRoja" placeholder="Ingrese velocidad">
+                        <select id="unidadVelocidadRoja">
+                            <option value="ms">m/s</option>
+                            <option value="kmh">km/h</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="datos" id="distancia-datos">
+                    <label for="distancia">Separación:</label>
+                    <div class="input-con-unidades">
+                        <input type="number" id="distancia" placeholder="Ingrese distancia">
+                        <select id="unidadDistancia">
+                            <option value="m">Metros</option>
+                            <option value="km">Kilómetros</option>
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    
+    
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
